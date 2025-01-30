@@ -1,5 +1,6 @@
 package com.carteira.app.controller;
 
+import com.carteira.app.config.JwtUtil;
 import com.carteira.app.model.Usuario;
 import com.carteira.app.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +13,18 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private JwtUtil jwtUtil;
 
-    @PostMapping
-    public Usuario criarUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.criarUsuario(usuario);
+
+
+    @GetMapping("/{email}")
+    public Usuario consultarUsuarioPorCpf(@PathVariable String email) {
+        return usuarioService.consultarUsuarioPorEmail(email);
     }
 
-    @GetMapping("/{cpf}")
-    public Usuario consultarUsuarioPorCpf(@PathVariable String cpf) {
-        return usuarioService.consultarUsuarioPorCpf(cpf);
+    @GetMapping("/{contaOrigem}")
+    public Usuario consultarUsuarioPorContaOrigem(@PathVariable String contaOrigem) {
+        return usuarioService.consultarUsuarioPorContaOrigem(contaOrigem);
     }
 }
