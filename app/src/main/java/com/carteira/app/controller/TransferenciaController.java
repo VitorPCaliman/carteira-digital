@@ -1,8 +1,10 @@
 package com.carteira.app.controller;
 
+import com.carteira.app.exception.TransferenciaException;
 import com.carteira.app.model.Transferencia;
 import com.carteira.app.service.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +17,8 @@ public class TransferenciaController {
     private TransferenciaService transferenciaService;
 
     @PostMapping
-    public Transferencia agendarTransferencia(@RequestBody Transferencia transferencia) {
-        return transferenciaService.agendarTransferencia(transferencia);
+    public ResponseEntity<Transferencia> agendarTransferencia(@RequestBody Transferencia transferencia) {
+        return ResponseEntity.ok(transferenciaService.agendarTransferencia(transferencia));
     }
 
     @GetMapping("/extrato/{contaOrigem}")
