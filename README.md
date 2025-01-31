@@ -15,7 +15,7 @@ Esta é a API de backend para a aplicação de Carteira Digital, responsável po
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/VitorPCaliman/Carteira-Digital-Back-End.git
+    git clone https://github.com/VitorPCaliman/Carteira-Digital-Back-End.git](https://github.com/VitorPCaliman/carteira-digital.git
     cd carteira-digital
     ```
 
